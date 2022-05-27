@@ -1,3 +1,5 @@
+import ballerinax/zendesk.support;
+import ballerinax/salesforce;
 import ballerina/http;
 
 # A service representing a network-accessible API
@@ -5,13 +7,12 @@ import ballerina/http;
 service / on new http:Listener(9090) {
 
     # A resource for generating greetings
-    # + name - the input string name
     # + return - string name with hello message or error
-    resource function get greeting(string name) returns string|error {
+    resource function get data() returns json|error {
         // Send a response back to the caller.
-        if name is "" {
-            return error("name should not be empty!");
-        }
-        return "Hello, " + name;
+
+        salesforce:Client salesforceEndpoint = check new ({baseUrl: "https://contentlab2-dev-ed.my.salesforce.com", clientConfig: {refreshUrl: "https://login.salesforce.com/services/oauth2/token", refreshToken: "5Aep861g78ZB7.52Bc5slKRxVRgBc9o5goud6O2tbCdGuDdAoTyGNWlChAPvvwVD6YH8X6C7kxq3Z681lmHSQKV", clientId: "3MVG9DREgiBqN9WmUCPxLD0NLTyR42IazrIJpzeekfzkQZof_MpurIEwpvdUuZmni8b66z44Q9QAzW_zkWnKf", clientSecret: "46AC8D07313A5298C57D64E41CB0BA4D69A6D195FD051F7C67C4B327084D65FC"}});
+        support:Client supportEndpoint = check new ({auth: {username: "okoth.ogutu@students.ku.ac.ke", password: "NBbvgd5LmTzYt7w"}}, "https://students9315.zendesk.com");
+        return "Hello, ";
     }
 }
