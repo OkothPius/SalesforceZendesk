@@ -130,7 +130,23 @@ dependencies = [
 
 [[package]]
 org = "ballerina"
+name = "lang.boolean"
+version = "0.0.0"
+dependencies = [
+	{org = "ballerina", name = "jballerina.java"}
+]
+
+[[package]]
+org = "ballerina"
 name = "lang.decimal"
+version = "0.0.0"
+dependencies = [
+	{org = "ballerina", name = "jballerina.java"}
+]
+
+[[package]]
+org = "ballerina"
+name = "lang.float"
 version = "0.0.0"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"}
@@ -168,6 +184,14 @@ dependencies = [
 [[package]]
 org = "ballerina"
 name = "lang.value"
+version = "0.0.0"
+dependencies = [
+	{org = "ballerina", name = "jballerina.java"}
+]
+
+[[package]]
+org = "ballerina"
+name = "lang.xml"
 version = "0.0.0"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"}
@@ -268,12 +292,52 @@ modules = [
 ]
 
 [[package]]
+org = "ballerinax"
+name = "salesforce"
+version = "6.0.0"
+dependencies = [
+	{org = "ballerina", name = "http"},
+	{org = "ballerina", name = "io"},
+	{org = "ballerina", name = "lang.boolean"},
+	{org = "ballerina", name = "lang.float"},
+	{org = "ballerina", name = "lang.int"},
+	{org = "ballerina", name = "lang.runtime"},
+	{org = "ballerina", name = "lang.string"},
+	{org = "ballerina", name = "lang.xml"},
+	{org = "ballerina", name = "log"},
+	{org = "ballerina", name = "os"},
+	{org = "ballerina", name = "regex"},
+	{org = "ballerina", name = "url"},
+	{org = "ballerinai", name = "observe"}
+]
+modules = [
+	{org = "ballerinax", packageName = "salesforce", moduleName = "salesforce"},
+	{org = "ballerinax", packageName = "salesforce", moduleName = "salesforce.bulk"},
+	{org = "ballerinax", packageName = "salesforce", moduleName = "salesforce.soap"}
+]
+
+[[package]]
+org = "ballerinax"
+name = "zendesk.support"
+version = "1.2.0"
+dependencies = [
+	{org = "ballerina", name = "http"},
+	{org = "ballerina", name = "url"},
+	{org = "ballerinai", name = "observe"}
+]
+modules = [
+	{org = "ballerinax", packageName = "zendesk.support", moduleName = "zendesk.support"}
+]
+
+[[package]]
 org = "contenlab"
 name = "sfzendesk"
 version = "0.1.0"
 dependencies = [
 	{org = "ballerina", name = "http"},
-	{org = "ballerinai", name = "observe"}
+	{org = "ballerinai", name = "observe"},
+	{org = "ballerinax", name = "salesforce"},
+	{org = "ballerinax", name = "zendesk.support"}
 ]
 modules = [
 	{org = "contenlab", packageName = "sfzendesk", moduleName = "sfzendesk"}
