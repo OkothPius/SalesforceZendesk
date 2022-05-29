@@ -16,6 +16,6 @@ service / on new http:Listener(9090) {
         string createAccountResponse = check salesforceEndpoint->createAccount({Name: "Jac Oruko", BillingCity: "Nairobi 047"});
         support:Client supportEndpoint = check new ({auth: {username: "okoth.ogutu@students.ku.ac.ke", password: "NBbvgd5LmTzYt7w"}}, "https://students9315.zendesk.com");
 
-        return getAccountByIdResponse;
+        return createAccountResponse;
     }
 }
